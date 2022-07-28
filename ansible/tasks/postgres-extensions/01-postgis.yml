@@ -11,6 +11,8 @@
       - libcgal-dev
       - libmpfr-dev
       - libgmp-dev
+      - libprotobuf-c-dev
+      - protobuf-c-compiler
       - cmake
     update_cache: yes
     cache_valid_time: 3600
@@ -19,8 +21,8 @@
 - name: postgis - ensure dependencies do not get autoremoved
   shell: |
     set -e
-    apt-mark manual libgeos* libproj* libgdal* libjson-c* libxml2* libboost* libcgal* libmpfr* libgmp*
-    apt-mark auto libgeos*-dev libproj*-dev libgdal*-dev libjson-c*-dev libxml2*-dev libboost*-dev libcgal*-dev libmpfr*-dev libgmp*-dev
+    apt-mark manual libgeos* libproj* libgdal* libjson-c* libxml2* libboost* libcgal* libmpfr* libgmp* libprotobuf-c* protobuf-c-compiler
+    apt-mark auto libgeos*-dev libproj*-dev libgdal*-dev libjson-c*-dev libxml2*-dev libboost*-dev libcgal*-dev libmpfr*-dev libgmp*-dev libprotobuf-c*-dev protobuf-c-compiler
 
   become: yes
   args:
@@ -71,7 +73,7 @@
 
 - name: postgis - configure
   shell:
-    cmd: "./configure --without-protobuf --with-sfcgal"
+    cmd: "./configure --with-sfcgal"
     chdir: /tmp/postgis-{{ postgis_release }}
   become: yes
 

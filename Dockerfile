@@ -1,6 +1,6 @@
 ARG VERSION
 
-FROM postgres:$VERSION
+FROM postgres:14-bullseye
 
 COPY ansible/ /tmp/ansible/
 
