@@ -41,7 +41,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: supabase/postgres:latest,supabase/postgres:${{ steps.settings.outputs.docker_version }}
+          tags: kathur/supagis:latest,kathur/supagis:${{ steps.settings.outputs.docker_version }}
           platforms: linux/amd64
           build-args: |
             "VERSION=${{steps.settings.outputs.postgres_version}}"
