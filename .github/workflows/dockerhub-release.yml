@@ -3,7 +3,7 @@ name: Release on Dockerhub
 on:
   push:
     branches:
-      - develop
+      - kathur_dev
     paths:
       - '.github/workflows/dockerhub-release.yml'
       - 'docker.vars*'
